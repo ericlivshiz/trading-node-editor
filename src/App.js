@@ -42,7 +42,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home email={email} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>} />
           <Route path="/login" element={<Login setLoggedIn={setLoggedIn} setEmail={setEmail} />} />
-          <Route path="/bot-vault" element={<BotVault />} />
+          <Route path="/bot-vault" element={<BotVault email={email}/>} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/faq" element={<Faq />} />
           <Route path= "/profile" element={<Profile setLoggedIn={setLoggedIn}/>} />

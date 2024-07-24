@@ -107,4 +107,36 @@ app.post('/check-account', (req, res) => {
     }
 })
 
+// An endpoint to save a new bot for the user
+app.post('/saved-bots', (req, res) => {
+    try {
+        const { email, botName } = req.body;
+        console.log(req.body);
+
+        // Find the user by email
+        const user = db.get('users').find({ email }).value();
+        console.log(user);
+
+        if (user) {
+            // Check if the user has a bots array; if not, initialize it
+            if (!user.bots) {
+                user.bots = [];
+            }
+            // Add the new botName to the user's bots array
+            user.bots.push(botName);
+
+            // Update the user document in the database
+            db.get('users').find({ email }).assign({ bots: user.bots }).write();
+
+            res.status(200).json({ message: 'Bot saved successfully' });
+        } else {
+            res.status(404).json({ message: 'User not found' });
+        }
+    } catch (error) {
+        console.error('Error in /saved-bots endpoint:', error);
+        res.status(500).json({ message: 'Internal Server Error' });
+    }
+});
+
+
 app.listen(3080, () => {console.log('server is running on http://localhost:3080')});

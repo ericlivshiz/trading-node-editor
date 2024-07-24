@@ -10,11 +10,20 @@
     },
     {
       "email": "ericlivshiz1@gmail.com",
-      "password": "$2b$10$3v2Ss6aubn2k//g.HbxiduaRFLBwH49cv4zPP3lxaQ58HiP91HiCi"
+      "password": "$2b$10$3v2Ss6aubn2k//g.HbxiduaRFLBwH49cv4zPP3lxaQ58HiP91HiCi",
+      "bots": [
+        "Test",
+        "Test",
+        "Test",
+        "Test"
+      ]
     },
     {
       "email": "matthewag@gmail.com",
       "password": "$2b$10$PV6h/3.4NCFmKJQRgs2uWuzXz5ymppzRlstPegedizZn1AdSQMvJa"
+    },
+    {
+      "bot": "Test"
     }
   ]
 }
