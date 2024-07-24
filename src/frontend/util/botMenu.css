@@ -1,0 +1,22 @@
+.horizontal-menu 
+{
+    display:inline-flex;
+}
+  
+  .horizontal-menu a {
+    background-color: #eee; /* Grey background color */
+    color: black; /* Black text color */
+     /* Make the links appear below each other */
+    padding: 12px; /* Add some padding */
+    text-decoration: none; /* Remove underline from links */
+  }
+  
+  .horizontal-menu a:hover {
+    background-color: #ccc; /* Dark grey background on mouse-over */
+  }
+  
+  .horizontal-menu a.active {
+    background-color: #295042; /* Add a green color to the "active/current" link */
+    color: white;
+  }
+  
