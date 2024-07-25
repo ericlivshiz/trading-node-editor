@@ -138,5 +138,27 @@ app.post('/saved-bots', (req, res) => {
     }
 });
 
+// Endpoint to get all bots for a user
+app.post('/get-bots', (req, res) => {
+    try {
+        const { email } = req.body;
+        console.log(req.body);
+
+        // Find the user by email
+        const user = db.get('users').find({ email }).value();
+        console.log(user);
+
+        if (user) {
+            res.status(200).json({ message: 'Bots retrieved successfully', bots: user.bots || [] });
+        } else {
+            res.status(404).json({ message: 'User not found' });
+        }
+    } catch (error) {
+        console.error('Error in /get-bots endpoint:', error);
+        res.status(500).json({ message: 'Internal Server Error' });
+    }
+});
+
+
 
 app.listen(3080, () => {console.log('server is running on http://localhost:3080')});

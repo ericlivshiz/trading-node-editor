@@ -13,7 +13,7 @@ const BotVault = (props) => {
         // Based on which button is pressed in the BotMenu, we will load a diff component
         switch (activeComponent) {
             case "Saved Bots":
-                return <SavedBots />;
+                return <SavedBots email={email}/>;
             case "Create New Bot":
                 return <CreateNewBots email={email}/>;
             case "Backtest":

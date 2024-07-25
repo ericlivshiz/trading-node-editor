@@ -1,4 +1,20 @@
-.test{
-    height: 89.5vh;
-    background-color: #3e9676;
-  }
+.saved-bots-container {
+  padding: 20px;
+}
+
+.bot-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.bot-item {
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.no-bots-message {
+  text-align: center;
+}
