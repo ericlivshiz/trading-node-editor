@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './savedBots.css';
+import trashIcon from './../img/trash-symbol.png';
 
 const SavedBots = ({ email }) => {
     const [bots, setBots] = useState([]);
@@ -25,12 +26,41 @@ const SavedBots = ({ email }) => {
         });
     }, [email]);
 
+    const handleDelete = (botName) => {
+        fetch("http://localhost:3080/delete-bot", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, botName })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.message === 'Bot deleted successfully') {
+                setBots(bots.filter(bot => bot !== botName));
+            } else {
+                console.error('Error deleting bot:', data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    };
+
     return (
         <div className="saved-bots-container">
             {bots.length > 0 ? (
                 <ul className="bot-list">
                     {bots.map((bot, index) => (
-                        <li key={index} className="bot-item">{bot}</li>
+                        <li key={index} className="bot-item">
+                            {bot}
+                            <img
+                                src={trashIcon}
+                                alt="Delete"
+                                className="trash-icon"
+                                onClick={() => handleDelete(bot)}
+                            />
+                        </li>
                     ))}
                 </ul>
             ) : (
@@ -44,3 +74,4 @@ const SavedBots = ({ email }) => {
 };
 
 export default SavedBots;
+

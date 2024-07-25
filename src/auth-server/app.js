@@ -159,6 +159,32 @@ app.post('/get-bots', (req, res) => {
     }
 });
 
+app.post('/delete-bot', (req, res) => {
+    try {
+        const { email, botName } = req.body;
+        console.log(req.body);
+
+        // Find the user by email
+        const user = db.get('users').find({ email }).value();
+        console.log(user);
+
+        if (user) {
+            // Remove the bot from the user's bots array
+            user.bots = user.bots.filter(bot => bot !== botName);
+
+            // Update the user document in the database
+            db.get('users').find({ email }).assign({ bots: user.bots }).write();
+
+            res.status(200).json({ message: 'Bot deleted successfully' });
+        } else {
+            res.status(404).json({ message: 'User not found' });
+        }
+    } catch (error) {
+        console.error('Error in /delete-bot endpoint:', error);
+        res.status(500).json({ message: 'Internal Server Error' });
+    }
+});
+
 
 
 app.listen(3080, () => {console.log('server is running on http://localhost:3080')});

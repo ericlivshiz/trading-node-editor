@@ -1,0 +1,42 @@
+.menu-container {
+    position: fixed; /* Changed to fixed to position relative to the viewport */
+    right: 0;
+    top: 90px;
+    width: 250px;
+    background-color: #f0f0f0;
+    border-left: 1px solid #ddd;
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    height: 70vh; /* Adjust according to your header height */
+    overflow-y: auto;
+    z-index: 1; /* Ensure it stays above other elements */
+}
+
+.menu-section {
+    margin-bottom: 20px;
+}
+
+.menu-section h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.menu-item {
+    list-style: none;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.menu-item:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.05);
+}
+
