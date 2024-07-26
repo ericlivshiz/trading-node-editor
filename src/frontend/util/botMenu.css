@@ -13,6 +13,8 @@
   
   .horizontal-menu a:hover {
     background-color: #ccc; /* Dark grey background on mouse-over */
+    transform: scale(1.05);
+
   }
   
   .horizontal-menu a.active {

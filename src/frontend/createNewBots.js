@@ -1,28 +1,78 @@
-import React, { useCallback, useState } from "react";
+import React, { useRef, useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ReactFlow, MiniMap, Controls, Background, useNodesState, useEdgesState, addEdge } from "@xyflow/react";
-import '@xyflow/react/dist/style.css';
 import NodeEditorMenu from "./util/nodeEditorMenu";
+import { 
+  ReactFlow, 
+  addEdge, 
+  useNodesState, 
+  useEdgesState, 
+  Controls, 
+  useReactFlow, 
+  Background, 
+  MiniMap } from "@xyflow/react";
+
+import '@xyflow/react/dist/style.css';
+import './util/nodeStyles.css'
+
+const initialNodes = [
+  { id: '1', 
+    position: { x: 50, y: 50 }, 
+    data: { label: 'Start' }, 
+    type: 'input',
+    className: 'node',
+  },
+];
+
+const initialEdges = [];
+
+let id = 3;
+const getId = () => `dndnode_${id++}`;
 
 const CreateNewBots = (props) => {
   const { email } = props;
   const [botName, setBotName] = useState("");
-
   const navigate = useNavigate();
 
-  const initialNodes = [
-    { id: '1', position: { x: 50, y: 50 }, data: { label: 'Condition' } },
-    { id: '2', position: { x: 300, y: 200 }, data: { label: 'Action' } },
-  ];
-
-  const initialEdges = [{ id: 'e1-2', source: '1', target: '2' }];
-
+  const reactFlowWrapper = useRef(null);
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const { screenToFlowPosition } = useReactFlow();
 
   const onConnect = useCallback(
     (params) => setEdges((eds) => addEdge(params, eds)),
     [setEdges],
+  );
+
+  const onDragOver = useCallback((event) => {
+    event.preventDefault();
+    event.dataTransfer.dropEffect = 'move';
+  }, []);
+
+  const onDrop = useCallback(
+    (event) => {
+      event.preventDefault();
+
+      const type = event.dataTransfer.getData('application/reactflow');
+
+      if (typeof type === 'undefined' || !type) {
+        return;
+      }
+
+      const position = screenToFlowPosition({
+        x: event.clientX,
+        y: event.clientY,
+      });
+      const newNode = {
+        id: getId(),
+        type,
+        position,
+        data: { label: `${type}` },
+        className: 'node',
+      };
+
+      setNodes((nds) => nds.concat(newNode));
+    },
+    [screenToFlowPosition, setNodes],
   );
 
   const handleSubmit = () => {
@@ -45,22 +95,26 @@ const CreateNewBots = (props) => {
   }
 
   return (
-    <div style={{ display: 'flex', height: '85vh' }}>
-      <div style={{ flex: 1, position: 'relative'}}>
+    <div style={{ display: 'flex', height: '90vh' }}>
+      <div style={{ flex: 1, position: 'relative', height: '100%' }}>
         <label>
           Bot Name: <input name="botName" value={botName} onChange={ev => setBotName(ev.target.value)} />
         </label>
         <button type="submit" onClick={handleSubmit}>Save</button>
-        <ReactFlow 
-          nodes={nodes}
-          edges={edges}
-          onNodesChange={onNodesChange}
-          onEdgesChange={onEdgesChange}
-          onConnect={onConnect}>
-          <Controls />
-          <MiniMap /> 
-          <Background variant="dots" gap={12} size={1} />
-        </ReactFlow>
+        <div className="reactflow-wrapper" ref={reactFlowWrapper} style={{ width: '100%', height: '90%' }}>
+          <ReactFlow 
+            nodes={nodes}
+            edges={edges}
+            onNodesChange={onNodesChange}
+            onEdgesChange={onEdgesChange}
+            onConnect={onConnect}
+            onDrop={onDrop}
+            onDragOver={onDragOver}>
+            <Controls />
+            <MiniMap />
+            <Background variant="dots" gap={12} size={1} />
+          </ReactFlow>
+        </div>
       </div>
       <NodeEditorMenu />
     </div>
@@ -68,3 +122,4 @@ const CreateNewBots = (props) => {
 }
 
 export default CreateNewBots;
+
