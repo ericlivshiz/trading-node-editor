@@ -9,10 +9,12 @@ import {
   Controls, 
   useReactFlow, 
   Background, 
-  MiniMap } from "@xyflow/react";
+  MiniMap 
+} from "@xyflow/react";
 
 import '@xyflow/react/dist/style.css';
-import './util/nodeStyles.css'
+import './util/nodeStyles.css';
+import CustomNode from "./util/customNodes";
 
 const initialNodes = [
   { id: '1', 
@@ -27,6 +29,10 @@ const initialEdges = [];
 
 let id = 3;
 const getId = () => `dndnode_${id++}`;
+
+const nodeTypes = {
+  customNode: CustomNode,
+};
 
 const CreateNewBots = (props) => {
   const { email } = props;
@@ -52,9 +58,9 @@ const CreateNewBots = (props) => {
     (event) => {
       event.preventDefault();
 
-      const type = event.dataTransfer.getData('application/reactflow');
-
-      if (typeof type === 'undefined' || !type) {
+      const data = JSON.parse(event.dataTransfer.getData('application/reactflow'));
+      const { nodeType, nodeCategory } = data;
+      if (!nodeType || !nodeCategory) {
         return;
       }
 
@@ -64,10 +70,10 @@ const CreateNewBots = (props) => {
       });
       const newNode = {
         id: getId(),
-        type,
+        type: 'customNode',
         position,
-        data: { label: `${type}` },
-        className: 'node',
+        data: { label: `${nodeType} Node`, category: nodeCategory },
+        className: 'custom-node',
       };
 
       setNodes((nds) => nds.concat(newNode));
@@ -109,7 +115,9 @@ const CreateNewBots = (props) => {
             onEdgesChange={onEdgesChange}
             onConnect={onConnect}
             onDrop={onDrop}
-            onDragOver={onDragOver}>
+            onDragOver={onDragOver}
+            nodeTypes={nodeTypes} // Correctly positioned nodeTypes prop
+          >
             <Controls />
             <MiniMap />
             <Background variant="dots" gap={12} size={1} />
@@ -122,4 +130,5 @@ const CreateNewBots = (props) => {
 }
 
 export default CreateNewBots;
+
 

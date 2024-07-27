@@ -10,8 +10,8 @@ const NodeEditorMenu = () => {
     customs: false,
   });
 
-  const onDragStart = (event, nodeType) => {
-    event.dataTransfer.setData('application/reactflow', nodeType);
+  const onDragStart = (event, nodeType, nodeCategory) => {
+    event.dataTransfer.setData('application/reactflow', JSON.stringify({nodeType, nodeCategory}));
     event.dataTransfer.effectAllowed = 'move';
   };
 
@@ -27,7 +27,9 @@ const NodeEditorMenu = () => {
   const triggers = ["Market Open", "Market Close", "Time Inteval", "Price Crossing Threshold", "Volume Spike", 
     "News Alert", "Earnings Release", "Manual Trigger", "Scheduled Time"];
 
-  const conditions = ["if", "if/else", "while"];
+  const conditions = ["If Price > X", "If Price < X", "If Volume > X", "If RSI > X", "If Rsi < X", "If MACD Crossover",
+    "If Bollinger Bands Breakout", "If Moving Average Cross", "If Candle Pattern Detected", "If News Sentiment Positive",
+    "If News Sentiment Negative", "If Price Change Percentage > X", "If Time of Day", "If Day of Week"];
 
   const actions = ["Place Buy Order", "Place Sell Order", "Place Stop Loss", "Place Take Profit", "Send Email Notification",
     "Send SMS Notification", "Set Trailing Stop", "Close Position", "Adjust Position Size", "Set Limit Order", 
@@ -45,7 +47,7 @@ const NodeEditorMenu = () => {
               <li
                 key={index}
                 className="menu-item"
-                onDragStart={(event) => onDragStart(event, type)}
+                onDragStart={(event) => onDragStart(event, type, 'type')}
                 draggable
               >
                 {type}
@@ -62,7 +64,7 @@ const NodeEditorMenu = () => {
               <li
                 key={index}
                 className="menu-item"
-                onDragStart={(event) => onDragStart(event, trigger)}
+                onDragStart={(event) => onDragStart(event, trigger, 'trigger')}
                 draggable
               >
                 {trigger}
@@ -79,7 +81,7 @@ const NodeEditorMenu = () => {
               <li
                 key={index}
                 className="menu-item"
-                onDragStart={(event) => onDragStart(event, condition)}
+                onDragStart={(event) => onDragStart(event, condition, 'condition')}
                 draggable
               >
                 {condition}
@@ -96,7 +98,7 @@ const NodeEditorMenu = () => {
               <li
                 key={index}
                 className="menu-item"
-                onDragStart={(event) => onDragStart(event, action)}
+                onDragStart={(event) => onDragStart(event, action, 'action')}
                 draggable
               >
                 {action}
@@ -113,7 +115,7 @@ const NodeEditorMenu = () => {
               <li
                 key={index}
                 className="menu-item"
-                onDragStart={(event) => onDragStart(event, custom)}
+                onDragStart={(event) => onDragStart(event, custom, 'custom')}
                 draggable
               >
                 {custom}
