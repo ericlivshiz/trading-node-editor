@@ -2,6 +2,14 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Dependencies
+In the project directory, you can run
+### npm install react-router-dom
+for the react-router-dom dependency
+
+#### npm install @xyflow/react
+for the react flow dependency
+
 ## Available Scripts
 
 In the project directory, you can run:
