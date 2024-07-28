@@ -6,10 +6,7 @@ This project is a React application for creating trading bots using a no-code vi
 - [Project Overview](#project-overview)
 - [Features](#features)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [Contributing](#contributing)
-- [License](#license)
+
 
 ## Project Overview
 
