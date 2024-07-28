@@ -9,7 +9,8 @@ import {
   Controls, 
   useReactFlow, 
   Background, 
-  MiniMap
+  MiniMap,
+  NodeProps
 } from "@xyflow/react";
 
 import '@xyflow/react/dist/style.css';
@@ -107,7 +108,7 @@ const CreateNewBots = (props) => {
         <label>
           Bot Name: <input name="botName" value={botName} onChange={ev => setBotName(ev.target.value)} />
         </label>
-        <button type="submit" onClick={handleSubmit}>Save</button>
+        <button type="submit" onClick={handleSubmit}>Save Bot</button>
         <div className="reactflow-wrapper" ref={reactFlowWrapper} style={{ width: '100%', height: '90%' }}>
           <ReactFlow 
             nodes={nodes}
