@@ -1,31 +1,38 @@
 import React from 'react';
 import { Handle } from '@xyflow/react';
+import trashIcon from './../../img/trash-symbol.png';
+import conditionIcon from './../../img/split-rgb.png';
+import actionIcon from './../../img/action-runner.png';
+import triggerIcon from './../../img/trigger-icon.png';
+import typeIcon from './../../img/trading-chart-icon.png';
+import customIcon from './../../img/lightning-bolt-icon.png';
 
-const CustomNode = ({ data }) => {
-  const { label, category } = data;
+const categoryImages = {
+  condition: conditionIcon,
+  action: actionIcon,
+  trigger: triggerIcon,
+  type: typeIcon,
+  custom: customIcon,
+  // Add more categories as needed
+};
 
-  const getNodeStyle = () => {
-    switch (category) {
-      case 'trigger':
-        return { backgroundColor: '#f39c12' }; // Orange for triggers
-      case 'condition':
-        return { backgroundColor: '#27ae60' }; // Green for conditions
-      case 'action':
-        return { backgroundColor: '#2980b9' }; // Blue for actions
-      case 'type':
-        return { backgroundColor: '#8e44ad' }; // Purple for types
-      default:
-        return { backgroundColor: '#2c3e50' }; // Default color
-    }
-  };
+const CustomNode = ({ data, id }) => {
+
 
   return (
-    <div style={{ ...getNodeStyle(), padding: '5px', color: '#fff' }}>
-      {label}
-      <Handle type="target" position="top" />
-      <Handle type="source" position="bottom" />
+    <div className={`custom-node ${data.category}`}>
+      <Handle type="target" position="top" className="handle-top" />
+      <img src={categoryImages[data.category]} alt={`${data.category}-icon`} className="category-icon" />
+      <div className="custom-node-label">
+        {data.label}
+      </div>
+      <div className="trash-icon-container">
+        <img src={trashIcon} alt="trash-icon" className="trash-icon"/>
+      </div>
+      <Handle type="source" position="bottom" className="handle-bottom" />
     </div>
   );
 };
 
 export default CustomNode;
+

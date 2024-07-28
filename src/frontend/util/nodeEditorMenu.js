@@ -22,7 +22,7 @@ const NodeEditorMenu = () => {
     }));
   };
 
-  const types = ["Stocks", "Indices", "Crypto"];
+  const types = ["Stock Trading", "Indices Trading", "Crypto Trading"];
 
   const triggers = ["Market Open", "Market Close", "Time Inteval", "Price Crossing Threshold", "Volume Spike", 
     "News Alert", "Earnings Release", "Manual Trigger", "Scheduled Time"];

@@ -9,7 +9,7 @@ import {
   Controls, 
   useReactFlow, 
   Background, 
-  MiniMap 
+  MiniMap
 } from "@xyflow/react";
 
 import '@xyflow/react/dist/style.css';
@@ -68,12 +68,13 @@ const CreateNewBots = (props) => {
         x: event.clientX,
         y: event.clientY,
       });
+      
       const newNode = {
         id: getId(),
         type: 'customNode',
         position,
-        data: { label: `${nodeType} Node`, category: nodeCategory },
-        className: 'custom-node',
+        data: { label: `${nodeType}`, category: nodeCategory },
+        className: 'node',
       };
 
       setNodes((nds) => nds.concat(newNode));
@@ -116,7 +117,7 @@ const CreateNewBots = (props) => {
             onConnect={onConnect}
             onDrop={onDrop}
             onDragOver={onDragOver}
-            nodeTypes={nodeTypes} // Correctly positioned nodeTypes prop
+            nodeTypes={nodeTypes}
           >
             <Controls />
             <MiniMap />
@@ -130,5 +131,4 @@ const CreateNewBots = (props) => {
 }
 
 export default CreateNewBots;
-
 
