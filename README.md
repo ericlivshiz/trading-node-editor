@@ -1,5 +1,8 @@
 # No-Code Automated Trading Bot Platform with Backtesting
 
+![image](https://github.com/user-attachments/assets/7bcb839b-3dce-4f8b-9b16-bef1a1fdf665)
+
+
 This project is a React application for creating trading bots using a no-code visual workflow editor. The application leverages `react flow` to allow users to build, configure, and manage automated trading strategies without writing any code.
 
 ## Table of Contents
