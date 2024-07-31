@@ -33,9 +33,16 @@ const BotMenu = ({ setActiveComponent }) => {
             >
                 Backtest
             </a>
+            <a 
+                href="#" 
+                className={activeItem === "Data Analysis" ? "active" : ""}
+                onClick={() => handleItemClick("Data Analysis")}
+            >
+                Data Analysis
+            </a>
         </div>
     );
+
 };
 
-export default BotMenu;
-
+export default BotMenu

@@ -1,12 +1,12 @@
+import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './frontend/home';
-import Login from './frontend/login';
-import './App.css';
 import { useEffect, useState } from 'react';
-import BotVault from './frontend/bot-vault';
-import Contact from './frontend/contact';
-import Faq from './frontend/faq'
-import Profile from './frontend/profile'
+import Home from './frontend/home.js';
+import Login from './frontend/login.js';
+import BotVault from './frontend/bot-vault.js';
+import './App.css';
+import './frontend/home.css';
+
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false)
@@ -39,15 +39,11 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home email={email} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>} />
-          <Route path="/login" element={<Login setLoggedIn={setLoggedIn} setEmail={setEmail} />} />
-          <Route path="/bot-vault" element={<BotVault email={email}/>} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/faq" element={<Faq />} />
-          <Route path= "/profile" element={<Profile setLoggedIn={setLoggedIn}/>} />
-          
-        </Routes>
+      <Routes>
+      <Route path="/" element ={<Home email={email} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>}/>
+      <Route path = "/login" element= {<Login setLoggedIn={setLoggedIn} setEmail={setEmail}/>}/>   
+      <Route path= "/bot-vault" element = {<BotVault email={email}/>}/> 
+      </Routes>
       </BrowserRouter>
     </div>
   );
