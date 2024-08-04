@@ -103,7 +103,7 @@ h3 {
     z-index: 1;
     top: 100%;
     left: 56%;
-    
+    display: none;
 }
 
 .dropdown-triggers-content a {
@@ -143,5 +143,86 @@ h3 {
 
 .addbtn
 {
-    
+    position: relative;
+    background-color: #73a0bd;
+    right: 8%;
+    top: 10%;
+}
+
+.condition {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.condition h3 {
+    margin: 0 10px;
+}
+
+input[type="text"],
+input[type="number"] {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin: 0 10px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.savebtn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.condition-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.savebtn:hover {
+    background-color: #45a049;
 }

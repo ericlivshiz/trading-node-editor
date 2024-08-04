@@ -8,6 +8,9 @@ const TriggersMenu = (props) => {
     
     const [showDropDownButton, setShowDropDownButton] = useState(true);
     const [showAddButton, setShowAddButton] = useState(false);
+    const [counter, setCounter] = useState(0);
+    // create a button text state and use that, so when you save the first time you can switch the text to
+    // save & exit
 
     const handleOptionClick = (option) => {
         setSelectedDropDownOption(option);
@@ -16,9 +19,19 @@ const TriggersMenu = (props) => {
     
 
     const handleSaveClick = () => {
-        setShowDropDownButton(false);
-        setShowAddButton(true);
 
+        if (counter == 0)
+        {
+            setShowDropDownButton(false);
+            setShowAddButton(true);
+            setCounter(1);
+        }
+        
+        if (counter == 1)
+        {
+            setOpenSections(false);
+            setCounter(2);
+        }
     };
 
     return(
@@ -31,9 +44,7 @@ const TriggersMenu = (props) => {
                     <button className="dropbtn">{selectedDropDownOption}</button>       
                 )}
 
-                {showAddButton && (
-                    <button className="addbtn">Add Button</button>
-                    )}
+                
                  {showDropDownButton && (
                 <div className="dropdown-triggers-content">
                 {options.map((option, index) => (
@@ -43,10 +54,9 @@ const TriggersMenu = (props) => {
                     ))}
             </div>
                     )}   
-                
             </div>
                   <button className="savebtn" onClick={handleSaveClick}>Save</button>
-                    <button>+</button>
+                  
         </div>
           );
       };
