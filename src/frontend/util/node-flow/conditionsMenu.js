@@ -1,8 +1,40 @@
 import React, { useState } from "react";
+// import ConditionOptionsComp from "./conditionOptionsComp";
+// import ConditionSavedComp from "./conditionsSavedComp";
+// const ConditionsMenu = (props) => 
+// {
+//     // States
+//     const [symbol, setSymbol] = useState("Select");
+//     const [priceEquality, setPriceEquality] = useState("Select");
+//     const [priceAmount, setPriceAmount] = useState("Input");
+//     const [volumeEquality, setVolumeEquality] = useState("Select");
+//     const [volumePercent, setVolumePercent] = useState("Input");
+//     const [showOptionsComponent, setShowOptionsComponent] = useState(true);
+//     const [showSavedComponent, setShowSavedComponent] = useState(false);
+//     const [showANDOR, setShowANDOR] = useState(false);
+//     const [activeComponent, setActiveComponent] = useState({
+//         options: true,
+//         saved: false
+//     })
+
+//     return
+//     (
+//         <div>
+//         <ConditionOptionsComp/>
+//         </div>
+//     )
+// }
+
+// export default ConditionsMenu;
 
 
 
 
+
+
+// Counter
+// What should the one we saved look like
+// setSelectedEquality(""); => previously saved gets erased?
 const ConditionsMenu = ({ openSections, setOpenSections }) => {
     const equalityOptions = ["Above", "Below"];
     const [symbol, setSymbol] = useState("");
@@ -26,14 +58,22 @@ const ConditionsMenu = ({ openSections, setOpenSections }) => {
         if(counter == 0)
         {
             setShowDropDownButton(false);
-            setShowAddButton(true);
             setCounter(1);
         }
         if (counter == 1)
         {
             setOpenSections(false);
+            setCounter(2);
         }
     };
+
+    const resetState = ()  => {
+        setSymbol("");
+        setPrice("");
+        setVolumePercent("");
+        setSelectedEquality("Select");
+        setSelectedVolumeEquality("Select");
+    }
 
     return (
         <div className="menu-container">
@@ -45,7 +85,7 @@ const ConditionsMenu = ({ openSections, setOpenSections }) => {
                     placeholder="Symbol"
                     onChange={(e) => setSymbol(e.target.value)}
                 />
-                <h3>is {showDropDownButton && selectedEquality !== "Select" && selectedEquality}</h3>
+                <h3>is {!showDropDownButton && selectedEquality !== "Select" && selectedEquality}</h3>
                 <div className="dropdown">
                     {showDropDownButton && (
                         <button className="dropbtn">{selectedEquality}</button>       
@@ -66,12 +106,11 @@ const ConditionsMenu = ({ openSections, setOpenSections }) => {
                     onChange={(e) => setPrice(e.target.value)}
                 />
             </div>
-            <div className="condition-row">
+            {showDropDownButton && (
+                <div className="condition-row">
                 <h3>If Volume is {!showDropDownButton && selectedVolumeEquality !== "Select" && selectedVolumeEquality}</h3>
-                <div className="dropdown">
-                    {showDropDownButton && (
+                <div className="dropdown">  
                     <button className="dropbtn">{selectedVolumeEquality}</button>
-                    )}
                     <div className="dropdown-content">
                         {equalityOptions.map((option, index) => (
                             <a href="#" key={index} onClick={() => handleVolumeEqualityClick(option)}>
@@ -87,7 +126,11 @@ const ConditionsMenu = ({ openSections, setOpenSections }) => {
                     onChange={(e) => setVolumePercent(e.target.value)}
                 />
                 <h3>%</h3>
-            </div>
+            </div>)}
+            {!showDropDownButton && (
+                <button className="addbtn" onClick={resetState}>+</button>
+            )}
+            
             <button className="savebtn" onClick={handleSaveClick}>Save</button>
         </div>
     );

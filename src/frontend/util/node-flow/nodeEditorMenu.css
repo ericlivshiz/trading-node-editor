@@ -147,6 +147,7 @@ h3 {
     background-color: #73a0bd;
     right: 8%;
     top: 10%;
+    cursor: pointer;
 }
 
 .condition {
