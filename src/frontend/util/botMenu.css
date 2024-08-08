@@ -1,24 +1,56 @@
-.horizontal-menu 
-{
-    display:inline-flex;
+.horizontal-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-  
-  .horizontal-menu a {
-    background-color: #eee; /* Grey background color */
-    color: black; /* Black text color */
-     /* Make the links appear below each other */
-    padding: 12px; /* Add some padding */
-    text-decoration: none; /* Remove underline from links */
-  }
-  
-  .horizontal-menu a:hover {
-    background-color: #ccc; /* Dark grey background on mouse-over */
-    transform: scale(1.05);
 
+.horizontal-menu a {
+  background-color: #eee;
+  color: black;
+  padding: 15px 25px;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  font-size: 1.1em;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.horizontal-menu a:hover {
+  background-color: #ccc;
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.horizontal-menu a:active {
+  background-color: #555;
+  color: white;
+  transform: scale(0.95);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.horizontal-menu a.active {
+  background-color: #5a9d9b;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 450px) {
+  .horizontal-menu {
+      gap: 5px;
+      padding: 5px;
   }
-  
-  .horizontal-menu a.active {
-    background-color: #295042; /* Add a green color to the "active/current" link */
-    color: white;
+
+  .horizontal-menu a {
+      padding: 7.5px 12.5px;
+      font-size: 0.55em;
+      border-radius: 12.5px;
   }
-  
+}

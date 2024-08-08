@@ -1,9 +1,12 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import Header from './util/header'; // Import the Header component
+import {useNavigate} from "react-router-dom";
+import Header from "./util/header";
+import BotMenu from './util/botMenu'
+import './home.css'
+import IntroPage from "./Intropage";
 
 const Home = (props) => {
-    const { loggedIn, email, setLoggedIn } = props;
+    const { loggedIn, email, setLoggedIn} = props;
     const navigate = useNavigate();
 
     const onButtonClick = () => {
@@ -20,8 +23,7 @@ const Home = (props) => {
             {loggedIn ? (
                 <div className="homeContainer">
                 <Header />
-                <h1>This is the Home Page!</h1>
-                <p>Here we will add content about what this site is about</p>
+                <IntroPage />
                 </div>
             ) : (
                 <div className="mainContainer">
@@ -30,7 +32,7 @@ const Home = (props) => {
                             <div>Welcome!</div>
                         </div>
                         <div>
-                            This is the login page.
+                            This is the home page.
                         </div>
                         <div className="buttonContainer">
                             <input
@@ -48,4 +50,3 @@ const Home = (props) => {
 };
 
 export default Home;
-

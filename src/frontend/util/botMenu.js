@@ -1,4 +1,4 @@
-import {React, useState} from "react";
+import React, { useState } from "react";
 import './botMenu.css';
 
 const BotMenu = ({ setActiveComponent }) => {
@@ -33,9 +33,15 @@ const BotMenu = ({ setActiveComponent }) => {
             >
                 Backtest
             </a>
+            <a 
+                href="#" 
+                className={activeItem === "Data Analysis" ? "active" : ""}
+                onClick={() => handleItemClick("Data Analysis")}
+            >
+                Data Analysis
+            </a>
         </div>
     );
 };
 
 export default BotMenu;
-

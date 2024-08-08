@@ -8,8 +8,7 @@ function Header() {
             <a href="/" className="logo">Trading App</a>
             <div className="header-right">
             <a className="bot-vault" href="bot-vault">Bot Vault</a>
-            <a href="/contact">Contact</a>
-            <a href="/FAQ">FAQ</a>
+            <a href="/learn">Learn</a>
             <a href="/profile">Profile</a>
             </div>
         </div>

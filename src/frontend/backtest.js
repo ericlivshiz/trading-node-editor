@@ -1,5 +1,5 @@
-import React from  "react"
-import './backtest.css'
+import React from "react"
+import "./backtest.css"
 
 const Backtest = () => {
     return(

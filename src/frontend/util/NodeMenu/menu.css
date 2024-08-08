@@ -1,0 +1,51 @@
+.vertical-menu {
+    width: 200px; /* Set a width if you like */
+  }
+  
+  .vertical-menu a {
+    background-color: #eee; /* Grey background color */
+    color: dodgerblue; /* Bot Vault color */
+    display: block; /* Make the links appear below each other */
+    padding: 12px 20px; /* Add some padding */
+    text-decoration: none; /* Remove underline from links */
+    font-size: 24px; /* Increase font size */
+    font-style: oblique; /* Oblique font style */
+    font-weight: bold; /* Bold text */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add shadow to the text */
+    border-radius: 10px; /* Rounded corners */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.vertical-menu a:hover {
+    background-color: #ccc; /* Dark grey background on mouse-over */
+    transform: scale(1.05); /* Slightly increase size on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+    color: rgb(45, 35, 35); /* Darker text color on hover */
+}
+
+  
+  .vertical-menu a.active {
+    background-color: #5a9d9b; /* Add a green color to the "active/current" link */
+    color: white;
+  }
+
+  @media (max-width: 600px)
+  {
+    .vertical-menu{
+        width: 150px;
+    }
+
+    .vertical-menu a{
+        font-size: 18px;
+    }
+  }
+
+  @media (max-width: 450px)
+  {
+    .vertical-menu{
+        width: 100px;
+    }
+    .vertical-menu a{
+        font-size: 12px;
+    }
+  }
