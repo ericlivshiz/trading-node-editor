@@ -35,7 +35,7 @@ const Types = ({ setActiveComponent }) => {
 
     return (
         <div className="types-menu-container">
-            <div className="types-vertical-menu">
+            <div className="vertical-menu">
                 <div className="select-container">            
                     <button className="select-button" onClick={handleSelectClick}>
                         {buttonName}
