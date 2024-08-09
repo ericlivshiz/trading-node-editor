@@ -1,51 +1,244 @@
+.menu-container {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 89.5vh;
+  width: 33%;
+  display: flex;
+  align-items: center;
+  background-color: #333; /* Background color for the container */
+  top: 14%;
+}
+
 .vertical-menu {
-    width: 200px; /* Set a width if you like */
-  }
-  
-  .vertical-menu a {
-    background-color: #eee; /* Grey background color */
-    color: dodgerblue; /* Bot Vault color */
-    display: block; /* Make the links appear below each other */
-    padding: 12px 20px; /* Add some padding */
-    text-decoration: none; /* Remove underline from links */
-    font-size: 24px; /* Increase font size */
-    font-style: oblique; /* Oblique font style */
-    font-weight: bold; /* Bold text */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add shadow to the text */
-    border-radius: 10px; /* Rounded corners */
-    transition: all 0.3s ease; /* Smooth transition for hover effects */
+  width: 100%; /* Make the menu take the full width of the container */
+  height: 100%; /* Make the menu take the full height of the container */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.vertical-menu a {
+  background-color: #eee; /* Grey background color */
+  color: dodgerblue; /* Bot Vault color */
+  display: block; /* Make the links appear below each other */
+  padding: 20px; /* Add some padding */
+  text-decoration: none; /* Remove underline from links */
+  font-size: 24px; /* Increase font size */
+  font-style: oblique; /* Oblique font style */
+  font-weight: bold; /* Bold text */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add shadow to the text */
+  border-radius: 10px; /* Rounded corners */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  margin: 10px 0; /* Add margin between menu items */
+  text-align: center; /* Center text */
 }
 
 .vertical-menu a:hover {
-    background-color: #ccc; /* Dark grey background on mouse-over */
-    transform: scale(1.05); /* Slightly increase size on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
-    color: rgb(45, 35, 35); /* Darker text color on hover */
+  background-color: #5a9d9b; /* Add a green color to the "active/current" link */
+  transform: scale(1.05); /* Slightly increase size on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+  color: rgb(45, 35, 35); /* Darker text color on hover */
 }
 
-  
-  .vertical-menu a.active {
-    background-color: #5a9d9b; /* Add a green color to the "active/current" link */
-    color: white;
+.types-menu-container {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 89.5vh;
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #333; /* Background color for the container */
+  padding: 20px; /* Add padding for inner content */
+  top: 14%;
+}
+
+.types-vertical-menu {
+  width: 100%; /* Make the menu take the full width of the container */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center align the content */
+  height: 80%;
+  justify-content: space-between; /* Space between top and bottom content */
+}
+
+
+/* THIS IS FOR THE CUSTOM BUTTONS AND DROP DOWN MENU */
+
+.custom-button {
+  background-color: #5a9d9b; /* Button color */
+  color: white;
+  padding: 12px 20px; /* Button padding */
+  border: none; /* Remove border */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 18px; /* Button font size */
+  margin: 10px 0; /* Space between buttons */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.custom-button:hover {
+  background-color: #4e8b89; /* Darker button color on hover */
+}
+
+
+/* DROP DOWN MENU */
+
+.dropdown-menu {
+  background-color: #eee; /* Grey background color */
+  border-radius: 10px; /* Rounded corners */
+  margin-top: 10px; /* Space between the button and dropdown */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow to the dropdown */
+  overflow: hidden; /* Clip the children when overflow */
+  width: 100%; /* Make dropdown width match button */
+}
+
+.dropdown-item {
+  display: block;
+  padding: 12px 20px; /* Padding inside each dropdown item */
+  text-decoration: none; /* Remove underline from links */
+  color: dodgerblue; /* Bot Vault color */
+  font-size: 18px; /* Dropdown item font size */
+  transition: background-color 0.3s ease; /* Smooth background transition */
+  font-style: oblique; /* Oblique font style */
+  font-weight: bold; /* Bold text */
+  font-size: 18px;
+
+}
+
+.dropdown-item:hover {
+  background-color: #5a9d9b; /* Dark grey background on hover */
+  color: rgb(45, 35, 35); /* Darker text color on hover */
+}
+
+.select-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px; /* Space between the select line and buttons */
+  position: relative; /* Needed for positioning the dropdown */
+}
+
+.select-container span {
+  color: white;
+  font-size: 18px; /* Adjust font size to match the design */
+  font-weight: bold; /* Make the text bold */
+  margin-right: 10px; /* Space between text and button */
+}
+
+.select-button {
+  background-color: #5a9d9b; /* Button color */
+  color: white;
+  padding: 8px 16px; /* Button padding */
+  border: none; /* Remove border */
+  border-radius: 30px; /* Rounded corners */
+  font-size: 18px; /* Button font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.select-button:hover {
+  background-color: #4e8b89; /* Darker button color on hover */
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 600px) {
+  .vertical-menu a {
+      font-size: 18px;
+      padding: 15px; /* Adjust padding for smaller screens */
   }
 
-  @media (max-width: 600px)
-  {
-    .vertical-menu{
-        width: 150px;
-    }
+}
 
-    .vertical-menu a{
-        font-size: 18px;
-    }
+@media (max-width: 450px) {
+  .vertical-menu a {
+      font-size: 12px;
+      padding: 10px; /* Adjust padding for even smaller screens */
+  }
+}
+
+@media (max-height: 1150px){
+  .menu-container{
+    top: 15%;
   }
 
-  @media (max-width: 450px)
-  {
-    .vertical-menu{
-        width: 100px;
-    }
-    .vertical-menu a{
-        font-size: 12px;
-    }
+  .types-menu-container{
+    top: 15%;
   }
+}
+
+@media (max-height: 1070px)
+{
+  .menu-container{
+    top: 20%;
+  }
+
+  .types-menu-container{
+    top: 20%;
+  }
+}
+
+@media (max-height: 810px)
+{
+  .menu-container{
+    top: 23%;
+  }
+
+  .types-menu-container{
+    top: 23%;
+  }
+}
+
+@media (max-height: 710px)
+{
+  .menu-container{
+    top: 26%;
+  }
+
+  .types-menu-container{
+    top: 26%;
+  }
+}
+
+@media (max-width: 600px)
+{
+  .select-container span {
+    font-size: 12px;
+  }
+
+  .select-button {
+    font-size: 12px;
+  }
+
+}
+
+@media (max-height: 625px)
+{
+  .menu-container{
+    top: 29%;
+    height: 70vh;
+  }
+
+  .types-menu-container{
+    top: 29%;
+    height: 70vh;
+  }
+}
+
+@media (max-width: 650px)
+{
+  .menu-container{
+    top: 35%;
+    height: 70vh;
+  }
+
+  .types-menu-container{
+    top: 35%;
+    height: 70vh;
+  }
+}

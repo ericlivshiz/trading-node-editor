@@ -5,7 +5,8 @@ import './menu.css';
 const Menu = ({ setActiveComponent }) => {
     const [activeItem, setActiveItem] = useState("");
 
-
+    // Set active item is used to make the css of selected item different,
+    // Set active component is used in the editor menu to switch between components in the menu based on clicks
     const handleItemClick = (item) => {
         console.log("Clicked on", item);
         setActiveItem(item);

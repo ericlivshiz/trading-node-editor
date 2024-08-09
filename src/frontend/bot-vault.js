@@ -22,7 +22,7 @@ const BotVault = (props) => {
             case "Backtest":
                 return <Backtest />
             case "Data Analysis":
-                return <DataAnalysis/>;
+                return <DataAnalysis/>
             }
             
     };

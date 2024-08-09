@@ -1,18 +1,17 @@
 import React, { useState } from "react";
-import Menu from "./util/NodeMenu/menu";
+import EditorMgr from "./util/NodeMenu/editorMgr";
 import './createNewBot.css';
 
 const CreateNewBot = () => {
     const [isMenuVisible, setMenuVisible] = useState(false);
-    const [activeComponent, setActiveComponent] = useState("");
-
     const toggleMenu = () => {
         setMenuVisible(!isMenuVisible);
     };
 
     return (
         <div className="createNewBot">
-            <Menu setActiveComponent={setActiveComponent} />
+            {/* Should only load the editormgr component on add button */}
+            <EditorMgr />
         </div>
     );
 };

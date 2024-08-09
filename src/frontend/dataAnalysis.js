@@ -1,5 +1,5 @@
 import React from "react";
-import "./dataAnalysis.css"
+import './dataAnalysis.css';
 
 const DataAnalysis = () => {
     console.log("data analysis is not created")

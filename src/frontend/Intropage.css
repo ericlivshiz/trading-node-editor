@@ -1,8 +1,8 @@
 .intro-container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    height: 100vh;
+    height: 88.9vh;
     background-color: #949e9d;
     padding: 20px;
 }
@@ -12,7 +12,9 @@
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 45%;
+    width: 80%;
+    max-width: 600px;
+    margin-bottom: 20px;
 }
 
 .sub-title {
@@ -30,7 +32,8 @@
 }
 
 .image-section {
-    width: 45%;
+    width: 80%;
+    max-width: 600px;
     display: flex;
     justify-content: center;
     align-items: center;
