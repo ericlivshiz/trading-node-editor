@@ -1,0 +1,229 @@
+.menu-container {
+    zoom: normal;
+    position: fixed;
+    right: 0;
+    top: 90px;
+    width: 30%;
+    background-color: #151414;
+    border-left: 1px solid #ddd;
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    height: 50vh;
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    z-index: 1; /* Ensure it stays above other elements */
+}
+
+.menu-section {
+    margin-bottom: 20px;
+    cursor: pointer;
+    height: 10vh;
+    justify-content: center;
+}
+
+.menu-section h2 {
+    margin-top: 10px;
+    font-size: 2.2em;
+    color: #73a0bd;
+    padding-bottom: 5px;
+    
+}
+
+.menu-section h2 img {
+    float: left;
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+}
+
+.menu-section h2:hover {
+    cursor: pointer;
+    background-color: aliceblue;
+    transform: scale(1.02);
+}
+
+.dropdown {
+    position: relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap: 2px;
+}
+
+.dropdown-header {
+    display: flex;
+    align-items: center;
+}
+
+h3 {
+    margin: 0;
+    margin-right: 10px;
+    font-size: 16px;
+    color: white;
+}
+
+.dropbtn {
+    background-color: #4b6ee2ad;
+    color: white;
+    padding: 8px 12px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5%;
+}
+
+.dropdown-types-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 100%;
+    left: 28%;
+}
+
+.dropdown-types-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-types-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown-triggers-content {
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 100%;
+    left: 56%;
+    display: none;
+}
+
+.dropdown-triggers-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-triggers-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-types-content {
+    display: block;
+}
+
+.dropdown:hover .dropdown-triggers-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: rgb(82, 99, 196);
+}
+
+.savebtn
+{
+    background-color: #4b6ee2;
+    color: white;
+    padding: 8px 12px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    top: 80%;
+}
+
+.addbtn
+{
+    position: relative;
+    background-color: #73a0bd;
+    right: 8%;
+    top: 10%;
+    cursor: pointer;
+}
+
+.condition {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.condition h3 {
+    margin: 0 10px;
+}
+
+input[type="text"],
+input[type="number"] {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin: 0 10px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.savebtn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.condition-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.savebtn:hover {
+    background-color: #45a049;
+}

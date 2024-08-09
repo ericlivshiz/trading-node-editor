@@ -1,5 +1,7 @@
 # No-Code Automated Trading Bot Platform with Backtesting
 
+The image came before a big refactor made by Matthew and Eric! Project is still in progress!
+
 ![image](https://github.com/user-attachments/assets/7bcb839b-3dce-4f8b-9b16-bef1a1fdf665)
 
 
