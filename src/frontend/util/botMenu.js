@@ -1,4 +1,4 @@
-import {React, useState} from "react";
+import React, { useState } from "react";
 import './botMenu.css';
 
 const BotMenu = ({ setActiveComponent }) => {
@@ -42,7 +42,7 @@ const BotMenu = ({ setActiveComponent }) => {
             </a>
         </div>
     );
-
 };
 
-export default BotMenu
+export default BotMenu;
+

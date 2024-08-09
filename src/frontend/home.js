@@ -1,6 +1,7 @@
 import React from "react";
 import {useNavigate} from "react-router-dom";
 import Header from "./util/header";
+import BotMenu from './util/botMenu'
 import './home.css'
 import IntroPage from "./Intropage";
 
@@ -49,3 +50,4 @@ const Home = (props) => {
 };
 
 export default Home;
+

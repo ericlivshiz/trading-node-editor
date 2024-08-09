@@ -65,8 +65,8 @@ const SavedBots = ({ email }) => {
                 </ul>
             ) : (
                 <div className="no-bots-message">
-                    <h1>There are no bots made yet on this account</h1>
-                    <p>At least we hope not!</p>
+                    <h1>You don't have any bots saved!</h1>
+                    <p>Please create a new bot and save to see it here!</p>
                 </div>
             )}
         </div>
