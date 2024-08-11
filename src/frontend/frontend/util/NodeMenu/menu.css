@@ -1,0 +1,400 @@
+.menu-container {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 89.5vh;
+  width: 33%;
+  display: flex;
+  align-items: center;
+  background-color: #333; /* Background color for the container */
+  top: 14%;
+}
+
+.vertical-menu {
+  width: 100%; /* Make the menu take the full width of the container */
+  height: 100%; /* Make the menu take the full height of the container */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.vertical-menu a {
+  background-color: #eee; /* Grey background color */
+  color: dodgerblue; /* Bot Vault color */
+  display: block; /* Make the links appear below each other */
+  padding: 20px; /* Add some padding */
+  text-decoration: none; /* Remove underline from links */
+  font-size: 24px; /* Increase font size */
+  font-style: oblique; /* Oblique font style */
+  font-weight: bold; /* Bold text */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add shadow to the text */
+  border-radius: 10px; /* Rounded corners */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  margin: 10px 0; /* Add margin between menu items */
+  text-align: center; /* Center text */
+}
+
+.vertical-menu a:hover {
+  background-color: #5a9d9b; /* Add a green color to the "active/current" link */
+  transform: scale(1.05); /* Slightly increase size on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+  color: rgb(45, 35, 35); /* Darker text color on hover */
+}
+
+.types-menu-container {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 89.5vh;
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #333; /* Background color for the container */
+  padding: 20px; /* Add padding for inner content */
+  top: 14%;
+}
+
+.types-vertical-menu {
+  width: 100%; /* Make the menu take the full width of the container */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center align the content */
+  height: 80%;
+  justify-content: space-between; /* Space between top and bottom content */
+}
+
+
+/* THIS IS FOR THE CUSTOM BUTTONS AND DROP DOWN MENU */
+
+.custom-button {
+  background-color: #5a9d9b; /* Button color */
+  color: white;
+  padding: 12px 20px; /* Button padding */
+  border: none; /* Remove border */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 18px; /* Button font size */
+  margin: 10px 0; /* Space between buttons */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.custom-button:hover {
+  background-color: #4e8b89; /* Darker button color on hover */
+}
+
+.custom-button:disabled {
+  cursor: not-allowed;
+}
+
+
+/* DROP DOWN MENU */
+
+.dropdown-menu {
+  background-color: #eee; /* Grey background color */
+  border-radius: 10px; /* Rounded corners */
+  margin-top: 10px; /* Space between the button and dropdown */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow to the dropdown */
+  overflow: hidden; /* Clip the children when overflow */
+  width: 100%; /* Make dropdown width match button */
+}
+
+.dropdown-item {
+  display: block;
+  padding: 12px 20px; /* Padding inside each dropdown item */
+  text-decoration: none; /* Remove underline from links */
+  color: dodgerblue; /* Bot Vault color */
+  font-size: 18px; /* Dropdown item font size */
+  transition: background-color 0.3s ease; /* Smooth background transition */
+  font-style: oblique; /* Oblique font style */
+  font-weight: bold; /* Bold text */
+  font-size: 18px;
+
+}
+
+.dropdown-item:hover {
+  background-color: #5a9d9b; /* Dark grey background on hover */
+  color: rgb(45, 35, 35); /* Darker text color on hover */
+}
+
+.select-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px; /* Space between the select line and buttons */
+  position: relative; /* Needed for positioning the dropdown */
+}
+
+.select-container span {
+  color: white;
+  font-size: 18px; /* Adjust font size to match the design */
+  font-weight: bold; /* Make the text bold */
+  margin-right: 10px; /* Space between text and button */
+  text-overflow: ellipsis;
+  margin: 10px;
+}
+
+.select-button {
+  background-color: #5a9d9b; /* Button color */
+  color: white;
+  padding: 8px 16px; /* Button padding */
+  border: none; /* Remove border */
+  border-radius: 30px; /* Rounded corners */
+  font-size: 18px; /* Button font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.select-button:hover {
+  background-color: #4e8b89; /* Darker button color on hover */
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* CUSTOM INPUT DESIGN */
+.custom-input {
+  background-color: #333; /* Match the container background */
+  color: white; /* White text for contrast */
+  padding: 12px 20px; /* Padding inside the input field */
+  border: 2px solid #5a9d9b; /* Border color matching the buttons */
+  border-radius: 10px; /* Rounded corners like buttons */
+  font-size: 11px; /* Font size matching the select button */
+  width: calc(20% - 44px); /* Ensure the width accounts for padding and border */
+  box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+  margin: 20px 0; /* Space between input fields */
+  transition: all 0.3s ease; /* Smooth transition for hover and focus effects */
+}
+
+.custom-input:focus {
+  border-color: #4e8b89; /* Change border color on focus to match button hover */
+  outline: none; /* Remove default outline */
+}
+
+.menu-container.hidden {
+  display: none; /* or visibility: hidden; */
+}
+
+.exit-button {
+  position: absolute; /* Position it absolutely within the .menu-container */
+  top: 10px; /* Distance from the top */
+  right: 10px; /* Distance from the right */
+  background-color: #5a9d9b; /* Button color */
+  color: white;
+  padding: 12px 20px; /* Button padding */
+  border: none; /* Remove border */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 18px; /* Button font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.add-button {
+  position: absolute;     /* Position it absolutely within the .menu-container */
+  top: 10px;              /* Distance from the top */
+  left: 10px;             /* Distance from the left */
+  background-color: #5a9d9b; /* Button color */
+  color: white;
+  padding: 12px 20px;     /* Button padding */
+  border: none;           /* Remove border */
+  border-radius: 10px;    /* Rounded corners */
+  font-size: 18px;        /* Button font size */
+  cursor: pointer;        /* Pointer cursor on hover */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  width: 10%;             /* Button width */
+}
+
+.saved-condition-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Styles for the saved conditions */
+.saved-conditions-container {
+  margin-top: 20px;
+}
+
+.saved-condition {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.saved-condition:hover {
+  transform: scale(1.02);
+}
+
+.saved-condition-content {
+  font-size: 14px;
+  color: #555;
+  margin-top: 5px;
+}
+
+.saved-condition-items {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.condition-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.condition-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin: 0 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.condition-button.selected {
+  background-color: #28a745;
+}
+
+.condition-button:hover {
+  background-color: #0056b3;
+}
+
+
+
+@media (max-width: 600px) {
+  .vertical-menu a {
+      font-size: 18px;
+      padding: 15px; /* Adjust padding for smaller screens */
+  }
+
+}
+
+@media (max-width: 450px) {
+  .vertical-menu a {
+      font-size: 12px;
+      padding: 10px; /* Adjust padding for even smaller screens */
+  }
+}
+
+@media (max-height: 1150px){
+  .menu-container{
+    top: 15%;
+  }
+
+  .types-menu-container{
+    top: 15%;
+  }
+}
+
+@media (max-height: 1070px)
+{
+  .menu-container{
+    top: 20%;
+  }
+
+  .types-menu-container{
+    top: 20%;
+  }
+}
+
+@media (max-height: 810px)
+{
+  .menu-container{
+    top: 23%;
+  }
+
+  .types-menu-container{
+    top: 23%;
+  }
+}
+
+@media (max-height: 710px)
+{
+  .menu-container{
+    top: 26%;
+  }
+
+  .types-menu-container{
+    top: 26%;
+  }
+}
+
+@media (max-width: 600px)
+{
+  .select-container span {
+    font-size: 12px;
+  }
+
+  .select-button {
+    font-size: 12px;
+  }
+
+}
+
+@media (max-height: 625px)
+{
+  .menu-container{
+    top: 29%;
+    height: 70vh;
+  }
+
+  .types-menu-container{
+    top: 29%;
+    height: 70vh;
+  }
+}
+
+@media (max-width: 650px)
+{
+  .menu-container{
+    top: 35%;
+    height: 70vh;
+  }
+
+  .types-menu-container{
+    top: 35%;
+    height: 70vh;
+  }
+}
+
+@media (max-width: 1650px)
+{
+
+}
+
+@media(max-width: 1950px)
+{
+  .custom-input {
+    width: calc(25% - 44px);
+    font-size: 12px;
+  }
+}
+
+@media(max-width: 1000px)
+{
+  .select-button {
+    font-size: 14px;
+  }
+  .select-container span {
+    font-size: 8px;
+  }
+}
+
+@media(max-width: 775px){
+  .select-button{ 
+    font-size: 8px;
+  }
+  .custom-input {
+    width: calc(13% - 44px);
+  }
+
+}
