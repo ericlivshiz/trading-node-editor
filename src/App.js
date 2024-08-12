@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Home from './frontend/home.js';
 import Login from './frontend/login.js';
+import Profile from './frontend/profile.js';
 import BotVault from './frontend/bot-vault.js';
 import './App.css';
 import './frontend/home.css';
@@ -42,6 +43,7 @@ function App() {
       <Routes>
       <Route path="/" element ={<Home email={email} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>}/>
       <Route path = "/login" element= {<Login setLoggedIn={setLoggedIn} setEmail={setEmail}/>}/>   
+      <Route path= "/profile" element = {<Profile setLoggedIn={setLoggedIn}/>}/>
       <Route path= "/bot-vault" element = {<BotVault email={email}/>}/> 
       </Routes>
       </BrowserRouter>
