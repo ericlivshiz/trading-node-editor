@@ -25,4 +25,3 @@ function IntroPage() {
 }
 
 export default IntroPage;
-

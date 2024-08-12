@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import {Handle, useReactFlow } from '@xyflow/react';
+import { Handle, useReactFlow } from '@xyflow/react';
 import trashIcon from './../../img/trash-symbol.png';
 import conditionIcon from './../../img/split-rgb.png';
 import actionIcon from './../../img/action-runner.png';
@@ -17,7 +17,7 @@ const categoryImages = {
 };
 
 const CustomNode = ({ data, id }) => {
-  const {getNode, setNodes, addNodes, setEdges}= useReactFlow();
+  const { getNode, setNodes, addNodes, setEdges } = useReactFlow();
 
   const deleteNode = useCallback(() => {
     setNodes((nodes) => nodes.filter((node) => node.id !== id));
@@ -33,7 +33,7 @@ const CustomNode = ({ data, id }) => {
         {data.label}
       </div>
       <div className="trash-icon-container">
-        <img src={trashIcon} alt="trash-icon" className="trash-icon" onClick={deleteNode}/>
+        <img src={trashIcon} alt="trash-icon" className="trash-icon" onClick={deleteNode} />
       </div>
       <Handle type="source" position="bottom" className="handle-bottom" />
     </div>

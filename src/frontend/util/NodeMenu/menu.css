@@ -83,6 +83,10 @@
   background-color: #4e8b89; /* Darker button color on hover */
 }
 
+.custom-button:disabled {
+  cursor: not-allowed;
+}
+
 
 /* DROP DOWN MENU */
 
@@ -125,6 +129,8 @@
   font-size: 18px; /* Adjust font size to match the design */
   font-weight: bold; /* Make the text bold */
   margin-right: 10px; /* Space between text and button */
+  text-overflow: ellipsis;
+  margin: 10px;
 }
 
 .select-button {
@@ -146,6 +152,141 @@
   display: flex;
   flex-direction: column;
 }
+
+/* CUSTOM INPUT DESIGN */
+.custom-input {
+  background-color: #333; /* Match the container background */
+  color: white; /* White text for contrast */
+  padding: 12px 20px; /* Padding inside the input field */
+  border: 2px solid #5a9d9b; /* Border color matching the buttons */
+  border-radius: 10px; /* Rounded corners like buttons */
+  font-size: 11px; /* Font size matching the select button */
+  width: calc(20% - 44px); /* Ensure the width accounts for padding and border */
+  box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+  margin: 20px 0; /* Space between input fields */
+  transition: all 0.3s ease; /* Smooth transition for hover and focus effects */
+}
+
+.custom-input:focus {
+  border-color: #4e8b89; /* Change border color on focus to match button hover */
+  outline: none; /* Remove default outline */
+}
+
+.menu-container.hidden {
+  display: none; /* or visibility: hidden; */
+}
+
+.exit-button {
+  position: absolute; /* Position it absolutely within the .menu-container */
+  top: 10px; /* Distance from the top */
+  right: 10px; /* Distance from the right */
+  background-color: #5a9d9b; /* Button color */
+  color: white;
+  padding: 12px 20px; /* Button padding */
+  border: none; /* Remove border */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 18px; /* Button font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.add-button {
+  position: absolute;     /* Position it absolutely within the .menu-container */
+  top: 10px;              /* Distance from the top */
+  left: 10px;             /* Distance from the left */
+  background-color: #5a9d9b; /* Button color */
+  color: white;
+  padding: 12px 20px;     /* Button padding */
+  border: none;           /* Remove border */
+  border-radius: 10px;    /* Rounded corners */
+  font-size: 18px;        /* Button font size */
+  cursor: pointer;        /* Pointer cursor on hover */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  width: 10%;             /* Button width */
+}
+
+.add-button:hover {
+    transform: scale(1.02);
+}
+
+.saved-condition-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20%;
+  font-weight: bold;
+  position: absolute;     /* Position it absolutely within the .menu-container */
+  left: 30%;             /* Distance from the left */
+  top: 0.1px;
+  background-color: #007bff; /* Button color */
+  color: white;
+  padding: 12px 20px;     /* Button padding */
+  border: none;           /* Remove border */
+  border-radius: 10px;    /* Rounded corners */
+}
+
+/* Styles for the saved conditions */
+.saved-conditions-container {
+  margin-top: 20px;
+}
+
+.saved-condition {
+  background-color: #5a9d9b;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.saved-condition:hover {
+  transform: scale(1.02);
+}
+
+.saved-condition-content {
+  font-size: 14px;
+  color: #555;
+  margin-top: 5px;
+}
+
+.saved-condition-items {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.condition-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.condition-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin: 0 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.condition-button.selected {
+  background-color: #28a745;
+}
+
+.condition-button:hover {
+  background-color: #0056b3;
+}
+
+.condition-button.active {
+  background-color: #5a9d9b; /* Change this to your desired active color */
+  color: white; /* Change this to your desired text color for active button */
+}
+
+
+
 
 @media (max-width: 600px) {
   .vertical-menu a {
@@ -241,4 +382,37 @@
     top: 35%;
     height: 70vh;
   }
+}
+
+@media (max-width: 1650px)
+{
+
+}
+
+@media(max-width: 1950px)
+{
+  .custom-input {
+    width: calc(25% - 44px);
+    font-size: 12px;
+  }
+}
+
+@media(max-width: 1000px)
+{
+  .select-button {
+    font-size: 14px;
+  }
+  .select-container span {
+    font-size: 8px;
+  }
+}
+
+@media(max-width: 775px){
+  .select-button{ 
+    font-size: 8px;
+  }
+  .custom-input {
+    width: calc(13% - 44px);
+  }
+
 }

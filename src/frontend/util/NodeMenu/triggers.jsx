@@ -1,10 +1,11 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 import './menu.css'
 
 const Triggers = ({setActiveComponent}) => 
 {
     const [buttonName, setButtonName] = useState("SELECT");
     const [showDropdown, setShowDropdown] = useState(false);
+    const [isSaveEnabled, setIsSaveEnabled] = useState(false);
 
     const handleSelectClick = () => {
         setShowDropdown(!showDropdown);
@@ -36,6 +37,17 @@ const Triggers = ({setActiveComponent}) =>
         // In the future though, this function should use the inputs to make a node out of it
         setActiveComponent("");
     }
+
+    const validateSave = () =>
+    {
+        const enabled = buttonName !== "SELECT";
+
+        return enabled;
+    }
+
+    useEffect(() => {
+        setIsSaveEnabled(validateSave());
+    }, [buttonName]);
     
     return(
         <div className="menu-container">
@@ -56,7 +68,8 @@ const Triggers = ({setActiveComponent}) =>
                     <button className="custom-button" onClick={handleBackClick}>
                         Back
                     </button>
-                    <button className="custom-button" onClick={handleSaveClick}>
+                    <button className="custom-button" onClick={handleSaveClick}
+                    disabled ={!isSaveEnabled}>
                         Save
                     </button>
                 </div>

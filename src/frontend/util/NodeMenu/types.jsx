@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './menu.css';
 
 const Types = ({ setActiveComponent }) => {
     const [showDropdown, setShowDropdown] = useState(false);
     const [buttonName, setButtonName] = useState("SELECT");
+    const [isSaveEnabled, setIsSaveEnabled] = useState(false);
 
     const handleSelectClick = () => {
         setShowDropdown(!showDropdown);
@@ -33,6 +34,17 @@ const Types = ({ setActiveComponent }) => {
         setActiveComponent("");
     };
 
+    const validateSave = () =>
+    {
+        const enabled = buttonName !== "SELECT";
+
+        return enabled;
+    }
+
+    useEffect(() => {
+        setIsSaveEnabled(validateSave());
+    }, [buttonName]);
+
     return (
         <div className="types-menu-container">
             <div className="vertical-menu">
@@ -52,7 +64,8 @@ const Types = ({ setActiveComponent }) => {
                     <button className="custom-button" onClick={handleBackClick}>
                         Back
                     </button>
-                    <button className="custom-button" onClick={handleSaveClick}>
+                    <button className="custom-button" onClick={handleSaveClick}
+                    disabled={!isSaveEnabled}>
                         Save
                     </button>
                 </div>
